@@ -1,0 +1,28 @@
+name: Test Formula
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Homebrew
+      id: set-up-homebrew
+      uses: Homebrew/actions/setup-homebrew@master
+
+    - name: Test formula syntax
+      run: |
+        ruby -c Formula/k8sify.rb
+
+    # Note: We can't easily test the actual build without a real release
+    # This workflow mainly tests formula syntax and structure
