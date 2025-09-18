@@ -1,11 +1,11 @@
 class K8sify < Formula
   desc "Intelligent Docker Compose to Kubernetes migration tool with cost analysis, security scanning, and production patterns"
-  homepage "https://github.com/k8sify/k8sify"
+  homepage "https://github.com/sreniatnoc/k8sify"
   license "MIT"
-  head "https://github.com/k8sify/k8sify.git", branch: "main"
+  head "https://github.com/sreniatnoc/k8sify.git", branch: "main"
 
   # This will be updated automatically by CI when we create releases
-  url "https://github.com/k8sify/k8sify/archive/refs/tags/v0.1.0.tar.gz"
+  url "https://github.com/sreniatnoc/k8sify/archive/refs/tags/v0.1.0.tar.gz"
   sha256 "0000000000000000000000000000000000000000000000000000000000000000" # Will be updated
   version "0.1.0"
 

@@ -6,7 +6,7 @@ This is the official Homebrew tap for K8sify and related tools.
 
 ```bash
 # Add the tap
-brew tap k8sify/tap
+brew tap sreniatnoc/tap
 
 # Install k8sify
 brew install k8sify
@@ -18,7 +18,7 @@ brew install k8sify
 Intelligent Docker Compose to Kubernetes migration tool with cost analysis, security scanning, and production patterns.
 
 ```bash
-brew install k8sify/tap/k8sify
+brew install sreniatnoc/tap/k8sify
 ```
 
 ## Usage
@@ -48,13 +48,13 @@ k8sify security -i docker-compose.yml
 
 ```bash
 # Test the formula
-brew test k8sify/tap/k8sify
+brew test sreniatnoc/tap/k8sify
 
 # Install from local formula
-brew install --build-from-source k8sify/tap/k8sify
+brew install --build-from-source sreniatnoc/tap/k8sify
 
 # Reinstall after changes
-brew reinstall k8sify/tap/k8sify
+brew reinstall sreniatnoc/tap/k8sify
 ```
 
 ### Updating the Formula
@@ -71,6 +71,6 @@ brew upgrade k8sify
 
 ## Support
 
-- [GitHub Issues](https://github.com/k8sify/k8sify/issues)
-- [Documentation](https://github.com/k8sify/k8sify#readme)
+- [GitHub Issues](https://github.com/sreniatnoc/k8sify/issues)
+- [Documentation](https://github.com/sreniatnoc/k8sify#readme)
 - [Discord Community](https://discord.gg/k8sify)

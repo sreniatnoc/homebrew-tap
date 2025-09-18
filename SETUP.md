@@ -10,7 +10,7 @@ This document provides step-by-step instructions for publishing the K8sify Homeb
 
 ## Step 1: Create GitHub Repository
 
-1. Go to GitHub and create a new repository under the `k8sify` organization
+1. Go to GitHub and create a new repository under the `sreniatnoc` organization
 2. Name the repository: `homebrew-tap` (this is required for Homebrew naming conventions)
 3. Make the repository public
 4. Don't initialize with README, .gitignore, or license (we already have these files)
@@ -32,7 +32,7 @@ git commit -m "Initial K8sify Homebrew tap
 - Add setup documentation"
 
 # Add GitHub remote (replace with actual URL)
-git remote add origin https://github.com/k8sify/homebrew-tap.git
+git remote add origin https://github.com/sreniatnoc/homebrew-tap.git
 
 # Push to GitHub
 git push -u origin main
@@ -44,10 +44,10 @@ Once published, users can test the tap:
 
 ```bash
 # Add the tap
-brew tap k8sify/tap
+brew tap sreniatnoc/tap
 
 # Install k8sify
-brew install k8sify/tap/k8sify
+brew install sreniatnoc/tap/k8sify
 
 # Test installation
 k8sify --version
@@ -77,7 +77,7 @@ jobs:
       uses: dawidd6/action-homebrew-bump-formula@v3
       with:
         token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
-        tap: k8sify/homebrew-tap
+        tap: sreniatnoc/homebrew-tap
         formula: k8sify
         tag: ${{ github.ref }}
         revision: ${{ github.sha }}
@@ -87,7 +87,7 @@ jobs:
 
 1. Download the release archive and calculate its SHA256:
    ```bash
-   curl -sL https://github.com/k8sify/k8sify/archive/refs/tags/v0.1.0.tar.gz | shasum -a 256
+   curl -sL https://github.com/sreniatnoc/k8sify/archive/refs/tags/v0.1.0.tar.gz | shasum -a 256
    ```
 
 2. Update `Formula/k8sify.rb`:
@@ -104,11 +104,11 @@ Test the complete installation flow:
 ```bash
 # Remove any existing installation
 brew uninstall k8sify || true
-brew untap k8sify/tap || true
+brew untap sreniatnoc/tap || true
 
 # Fresh installation
-brew tap k8sify/tap
-brew install k8sify/tap/k8sify
+brew tap sreniatnoc/tap
+brew install sreniatnoc/tap/k8sify
 
 # Verify it works
 k8sify --help
@@ -119,7 +119,7 @@ k8sify --version
 
 Update the main k8sify repository's README to reflect that the brew install command now works:
 
-- Ensure the installation section shows: `brew install k8sify/tap/k8sify`
+- Ensure the installation section shows: `brew install sreniatnoc/tap/k8sify`
 - Add a note that the tap is now available
 
 ## Troubleshooting
