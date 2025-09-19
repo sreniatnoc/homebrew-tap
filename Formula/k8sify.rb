@@ -9,10 +9,28 @@ class K8sify < Formula
   sha256 "2f34ace40a58747f01ac671521c6f9701e719c4215b6315d8bebaab872541a80"
   version "0.1.0"
 
-  depends_on "rust" => :build
-
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    # Download and install the pre-built binary for the current platform
+    if OS.mac?
+      if Hardware::CPU.arm?
+        # Apple Silicon (M1/M2/M3)
+        binary_url = "https://github.com/sreniatnoc/k8sify/releases/download/v0.1.0/k8sify-macos-amd64-binary"
+        binary_name = "k8sify-macos-amd64-binary"
+      else
+        # Intel Mac
+        binary_url = "https://github.com/sreniatnoc/k8sify/releases/download/v0.1.0/k8sify-macos-amd64-binary"
+        binary_name = "k8sify-macos-amd64-binary"
+      end
+    elsif OS.linux?
+      binary_url = "https://github.com/sreniatnoc/k8sify/releases/download/v0.1.0/k8sify-linux-amd64-binary"
+      binary_name = "k8sify-linux-amd64-binary"
+    else
+      odie "Unsupported platform"
+    end
+
+    system "curl", "-L", binary_url, "-o", binary_name
+    chmod 0755, binary_name
+    bin.install binary_name => "k8sify"
 
     # Install shell completions (if supported)
     # generate_completions_from_executable(bin/"k8sify", "--generate", base: "k8sify")
