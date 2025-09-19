@@ -6,7 +6,7 @@ class K8sify < Formula
 
   # This will be updated automatically by CI when we create releases
   url "https://github.com/sreniatnoc/k8sify/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000" # Will be updated
+  sha256 "2f34ace40a58747f01ac671521c6f9701e719c4215b6315d8bebaab872541a80"
   version "0.1.0"
 
   depends_on "rust" => :build
@@ -14,8 +14,8 @@ class K8sify < Formula
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
-    # Install shell completions
-    generate_completions_from_executable(bin/"k8sify", "--generate", base: "k8sify")
+    # Install shell completions (if supported)
+    # generate_completions_from_executable(bin/"k8sify", "--generate", base: "k8sify")
 
     # Install man page if available
     if (buildpath/"docs/k8sify.1").exist?
